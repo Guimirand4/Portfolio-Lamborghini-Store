@@ -3,6 +3,7 @@ import { View, Text, Button, Image } from "react-native";
 import { styles } from "./style";
 import Logo from "../../../assets/logo.png";
 import { Divider } from "../Divider";
+import { CAR_ASSETS_BASE_URL } from "../../constants/car";
 
 export function CardView() {
   const renderLogoBox = () => (
@@ -12,10 +13,19 @@ export function CardView() {
   );
 
   const renderCarDetails = () => (
-    <View style={{alignItems: "center"}}>
+    <View style={{ alignItems: "center" }}>
       <Text style={styles.carBrand}>Lamborghini</Text>
       <Text style={styles.carName}>MODEL</Text>
     </View>
+  );
+
+  const renderCarImage = () => (
+    <Image
+      style={styles.Image}
+      source={{
+        uri: `${CAR_ASSETS_BASE_URL}1.png`,
+      }}
+    />
   );
 
   return (
@@ -23,6 +33,8 @@ export function CardView() {
       {renderLogoBox()}
       <Divider />
       {renderCarDetails()}
+      {renderCarImage()}
+      <Divider />
     </View>
   );
 }

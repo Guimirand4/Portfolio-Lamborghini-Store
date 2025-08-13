@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     height: "100%",
     overflow: "hidden",
     borderRadius: 8,
-   
   },
   LogoContainer: {
     alignItems: "center",
@@ -31,6 +30,13 @@ export const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     fontSize: 20,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
+  Image: {
+    flex: 1,
+    marginBottom: 10,
+    width: "100%",
+    height: undefined,
+    resizeMode: "contain",
+  },
 });
