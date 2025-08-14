@@ -5,7 +5,7 @@ export const handlePreviousItem = async (carData: CarModel | null, setCarData: R
         let response = null
     try {
         if(carData && carData?.id > 1){
-            const response = await fetchGetCarData(carData.id - 1);
+           response = await fetchGetCarData(carData.id - 1);
         }
         if(response){
             setCarData(response);
@@ -18,10 +18,18 @@ export const handlePreviousItem = async (carData: CarModel | null, setCarData: R
 }
 
 export const handleNextItem = async (carData: CarModel | null, setCarData: React.Dispatch<React.SetStateAction<CarModel | null>>) => {
+         let response = null
     try {
+        if(carData && carData?.id < 10){
+          response = await fetchGetCarData(carData.id + 1);
+        }
+        if(response){
+            setCarData(response);
+        }
         
     } catch (error) {
         console.error("Error handling next item:", error);
+        setCarData(null);
     }
 }
 
