@@ -1,12 +1,28 @@
 import { fetchGetCarData } from "../../apis/getCars";
 import { CarModel } from "./props"
 
-export const handlePreviousItem = async () => {
-
+export const handlePreviousItem = async (carData: CarModel | null, setCarData: React.Dispatch<React.SetStateAction<CarModel | null>>) => {
+        let response = null
+    try {
+        if(carData && carData?.id > 1){
+            const response = await fetchGetCarData(carData.id - 1);
+        }
+        if(response){
+            setCarData(response);
+        }
+        
+    } catch (error) {
+        console.error("Error handling previous item:", error);
+        setCarData(null);
+    }
 }
 
-export const handleNextItem = async () => {
-
+export const handleNextItem = async (carData: CarModel | null, setCarData: React.Dispatch<React.SetStateAction<CarModel | null>>) => {
+    try {
+        
+    } catch (error) {
+        console.error("Error handling next item:", error);
+    }
 }
 
 //fazer solicitação para a api
